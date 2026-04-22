@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Formulario </title>
+</head>
+<body>
+    <center>
+        <h4>Registro de aspirantes a la UT de la Costa</h4>
+        <form action="" method="get">
+            Nombre:
+            <input type="tetx" name="nombre" required="true" maxlegth="50"><br><br>
+            Edad:
+            <input type="number" name="edad" required="true" min="17" max="100"><br><br>
+            Fechade nacimiento:
+            <input type="date" name="fechanac" required="true"><br><br>
+            Bachillerato:
+            <input type="text" name="escuela" required="true"><br><br>
+            Sexo:
+            <input type="radio" name="sexo" value="hombre">Hombre
+            <input type="radio" name="sexo" value="Mujer">Mujer<br><br>
+            Correo electronico:
+            <input type="email" name="correo"required="true" maxlength="100"
+            <br><br>
+            Telefono:
+            <input type="tel" name="telefono" required="true" pattern="[
+            0-9]{3}-[0-9]{3}-[0-9]{4}" maxlength="12"><br><br>
+            Carrera:
+            <select name="carrera" required="true">
+                <option></option>
+                <option value="TI">Tecnologias de la Informacion</option>
+                <option value="Agro">Agrobiotecnologias</option>
+                <option value="Admin">Administracion</option>
+                <option value="Merca">Mercadotecnia</option>
+                <option value="PAL">Procesos Alimentarios</option>
+            </select><br><br>
+            Gustos:
+            <select name="gustos" multiple="" required="true">
+                <option value="leer">Leer</option>
+                <option value="musica">Musica</option>
+                <option value="cine">Cine</option>
+                <option value="juegos">Videojuegos</option>
+            </select><br><br>
+            Comertarios:
+            <textarea name="comentarios" rows="5" cols="20"></textarea><br>
+            <br>
+            Saludo:
+            <button type="button" onclick="alert('¡Hola aspirante! ¿Cómo estás?')">Clickea</button>
+            <br><br>
+            <input type="submit" name="" value="Guardar">
+            <input type="reset" name="" value="Borrar">
+        </form>
+        <br>
+        <a href="index.html">Regresar</a>
+    </center>
+</body>
+</html>
+        </form>
+    </center>
+</body>
+</html>

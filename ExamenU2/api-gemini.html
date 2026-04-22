@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>API ChatGPT</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:#0f172a;
+color:white;
+text-align:center;
+}
+
+.container{
+width:500px;
+margin:40px auto;
+padding:20px;
+background:#1e293b;
+border-radius:10px;
+}
+
+input{
+width:80%;
+padding:10px;
+border-radius:5px;
+border:none;
+}
+
+button{
+padding:10px 20px;
+background:#22c55e;
+border:none;
+color:white;
+border-radius:5px;
+cursor:pointer;
+}
+
+#respuesta{
+margin-top:20px;
+background:#334155;
+padding:15px;
+border-radius:5px;
+}
+
+.footer{
+margin-top:20px;
+font-size:14px;
+color:#ccc;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>API ChatGPT</h1>
+
+<input id="pregunta" placeholder="Escribe tu pregunta">
+
+<button onclick="preguntar()">Preguntar</button>
+
+<div id="respuesta"></div>
+
+<div class="footer">
+<p><b>Desarrollador:</b> Dulce Janeth Cervantes Muñoz</p>
+<p><b>Materia:</b> Integración de APIs</p>
+<p><b>Año:</b> 2026</p>
+</div>
+
+</div>
+
+<script>
+
+async function preguntar(){
+
+let pregunta = document.getElementById("pregunta").value;
+
+let response = await fetch("https://api.openai.com/v1/chat/completions",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json",
+"Authorization":"Bearer TU_API_KEY"
+},
+
+body:JSON.stringify({
+
+model:"gpt-4.1-mini",
+
+messages:[
+{role:"user",content:pregunta}
+]
+
+})
+
+});
+
+let data = await response.json();
+
+document.getElementById("respuesta").innerText =
+data.choices[0].message.content;
+
+}
+
+</script>
+
+</body>
+</html>

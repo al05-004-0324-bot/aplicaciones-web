@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Venta - Zapatería</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .form-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 450px;
+        }
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #e67e22;
+            padding-bottom: 10px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #555;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: #e67e22;
+        }
+        .btn-submit {
+            background-color: #e67e22;
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+        .btn-submit:hover {
+            background-color: #d35400;
+        }
+        .info-text {
+            font-size: 0.85em;
+            color: #7f8c8d;
+            margin-top: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-card">
+    <h2>Registro de Venta</h2>
+    <form action="#">
+        
+        <div class="form-group">
+            <label for="modelo">Modelo del Zapato:</label>
+            <input type="text" id="modelo" name="modelo" placeholder="Ej: Oxford Clásico" required>
+        </div>
+
+        <div class="form-group">
+            <label for="precio">Precio (MXN):</label>
+            <input type="number" id="precio" name="precio" min="100" max="1000" step="1" required>
+            <p class="info-text">Rango permitido: $100 - $1000</p>
+        </div>
+
+        <div class="form-group">
+            <label for="color">Color:</label>
+            <select id="color" name="color" required>
+                <option value="">Seleccione color</option>
+                <option value="Negro">Negro</option>
+                <option value="Camel">Camel</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="talla">Número (Talla):</label>
+            <input type="number" id="talla" name="talla" step="1" placeholder="Solo números enteros" required>
+            <p class="info-text">Ejemplo: 9 (No se aceptan medios números)</p>
+        </div>
+
+        <div class="form-group">
+            <label for="cliente">Nombre del Cliente:</label>
+            <input type="text" id="cliente" name="cliente" required>
+        </div>
+
+        <div class="form-group">
+            <label for="fecha">Fecha de Venta:</label>
+            <input type="date" id="fecha" name="fecha" required>
+        </div>
+
+        <button type="submit" class="btn-submit">Registrar Venta</button>
+    </form>
+</div>
+
+</body>
+</html>

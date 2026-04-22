@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Veterinaria - Control de Mascotas</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f7f4;
+            display: flex;
+            justify-content: center;
+            padding: 30px;
+        }
+        .form-container {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 650px;
+            border-top: 8px solid #27ae60;
+        }
+        h2 {
+            color: #27ae60;
+            text-align: center;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        h3 {
+            color: #2c3e50;
+            font-size: 1.1em;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-top: 20px;
+        }
+        .grid-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .full-width {
+            grid-column: span 2;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #444;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+        input:focus {
+            outline: none;
+            border-color: #27ae60;
+            box-shadow: 0 0 5px rgba(39, 174, 96, 0.3);
+        }
+        .btn-submit {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            width: 100%;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 25px;
+            transition: background 0.3s;
+        }
+        .btn-submit:hover {
+            background-color: #1e8449;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>🐾 Registro de Paciente</h2>
+    
+    <form action="#">
+        <h3>Datos de la Mascota</h3>
+        <div class="grid-form">
+            <div class="full-width">
+                <label for="nombre_mascota">Nombre de la Mascota:</label>
+                <input type="text" id="nombre_mascota" name="nombre_mascota" placeholder="Ej: Max" required>
+            </div>
+            
+            <div>
+                <label for="raza">Raza:</label>
+                <input type="text" id="raza" name="raza" required>
+            </div>
+            
+            <div>
+                <label for="fecha_nac">Fecha de Nacimiento:</label>
+                <input type="date" id="fecha_nac" name="fecha_nac" required>
+            </div>
+
+            <div>
+                <label for="edad">Edad (años):</label>
+                <input type="number" id="edad" name="edad" min="0" step="1">
+            </div>
+
+            <div>
+                <label for="peso">Peso (kg):</label>
+                <input type="number" id="peso" name="peso" step="0.1" placeholder="0.0">
+            </div>
+
+            <div class="full-width">
+                <label for="estatura">Estatura / Talla:</label>
+                <input type="text" id="estatura" name="estatura" placeholder="Ej: Pequeña, 45cm...">
+            </div>
+        </div>
+
+        <h3>Datos del Propietario</h3>
+        <div class="grid-form">
+            <div class="full-width">
+                <label for="propietario">Nombre Completo:</label>
+                <input type="text" id="propietario" name="propietario" required>
+            </div>
+
+            <div class="full-width">
+                <label for="direccion">Dirección:</label>
+                <input type="text" id="direccion" name="direccion" required>
+            </div>
+
+            <div class="full-width">
+                <label for="telefono">Teléfono de Contacto:</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="10 dígitos" required>
+            </div>
+        </div>
+
+        <button type="submit" class="btn-submit">Dar de Alta Mascota</button>
+    </form>
+</div>
+
+</body>
+</html>

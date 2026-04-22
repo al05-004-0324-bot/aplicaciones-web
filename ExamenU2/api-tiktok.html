@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>api de tiktok</title>
+</head>
+<body>
+        <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok Dev Player - Solo HTML</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #010101; color: #ffffff; font-family: 'Inter', sans-serif; }
+        .tiktok-card {
+            background: #121212;
+            border: 1px solid #2f2f2f;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .tiktok-card:hover { border-color: #fe2c55; }
+        .btn-tiktok {
+            background-color: #fe2c55;
+            transition: all 0.2s;
+        }
+        .btn-tiktok:hover { background-color: #ef2950; transform: scale(1.02); }
+        #videoContainer blockquote { margin: 0 auto !important; }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="max-w-2xl mx-auto">
+        <header class="flex items-center justify-between mb-10">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-gradient-to-tr from-[#25f4ee] to-[#fe2c55] rounded-full flex items-center justify-center">
+                    <span class="text-black font-black">TT</span>
+                </div>
+                <div>
+                    <h1 class="text-2xl font-black tracking-tighter italic">TIKTOK API DEV</h1>
+                    <p class="text-[10px] text-gray-400 uppercase tracking-widest">Programador: <span class="text-[#25f4ee]">Dev_Studio_2026</span></p>
+                </div>
+            </div>
+            <div class="hidden md:block text-right text-xs text-gray-500">
+                Status: <span class="text-green-500">V3.0 Functional</span>
+            </div>
+        </header>
+
+        <div class="tiktok-card p-6 mb-8">
+            <h2 class="text-sm font-bold mb-4 text-gray-300">CONFIGURACIÓN DE VIDEO</h2>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs text-gray-500 mb-1">URL DEL VIDEO O ID</label>
+                    <input type="text" id="videoUrl" 
+                           placeholder="https://www.tiktok.com/@user/video/7123456..." 
+                           class="w-full bg-[#2f2f2f] border-none text-white rounded-lg p-3 text-sm focus:ring-2 focus:ring-[#25f4ee] outline-none">
+                </div>
+                
+                <button onclick="cargarVideo()" class="w-full btn-tiktok text-white font-black py-3 rounded-lg shadow-lg uppercase text-sm tracking-widest">
+                    Renderizar Video
+                </button>
+            </div>
+        </div>
+
+        <div id="displayArea" class="relative min-h-[400px] flex items-center justify-center border-2 border-dashed border-[#2f2f2f] rounded-3xl">
+            <div id="placeholderText" class="text-center p-10">
+                <p class="text-gray-600 italic">Ingresa una URL válida para conectar con la CDN de TikTok</p>
+            </div>
+            <div id="videoContainer" class="w-full h-full flex justify-center"></div>
+        </div>
+
+        <footer class="mt-10 text-center">
+            <p class="text-[10px] text-gray-600">Integración vía TikTok Embed SDK v2.0 | 2026 Interface</p>
+        </footer>
+    </div>
+
+    <script async src="https://www.tiktok.com/embed.js"></script>
+
+    <script>
+        function cargarVideo() {
+            const urlInput = document.getElementById('videoUrl').value.trim();
+            const container = document.getElementById('videoContainer');
+            const placeholder = document.getElementById('placeholderText');
+
+            // 1. Lógica de Negación (Validación)
+            if (!urlInput) {
+                alert("🚫 Negación: Debes proporcionar una URL de TikTok.");
+                return;
+            }
+
+            if (!urlInput.includes("tiktok.com")) {
+                alert("⚠️ Negación: La URL ingresada no pertenece al dominio oficial de TikTok.");
+                return;
+            }
+
+            // Limpiar contenedor
+            container.innerHTML = "";
+            placeholder.classList.add('hidden');
+
+            // 2. Extracción de ID (Simulación de procesamiento API)
+            // TikTok requiere un formato de blockquote para su SDK de inserción
+            const videoId = urlInput.split('/video/')[1]?.split('?')[0] || urlInput;
+
+            const tiktokHTML = `
+                <blockquote class="tiktok-embed" 
+                            cite="${urlInput}" 
+                            data-video-id="${videoId}" 
+                            style="max-width: 605px;min-width: 325px;"> 
+                    <section> <a target="_blank" href="${urlInput}">Cargando video...</a> </section> 
+                </blockquote>
+            `;
+
+            container.innerHTML = tiktokHTML;
+
+            // Reiniciar el SDK para que detecte el nuevo elemento
+            if (window.tiktok && window.tiktok.embed) {
+                window.tiktok.embed.lib.render();
+            } else {
+                // Si el script aún no carga, forzamos recarga del script de TikTok
+                const script = document.createElement('script');
+                script.src = "https://www.tiktok.com/embed.js";
+                document.body.appendChild(script);
+            }
+        }
+    </script>
+</body>
+</html>
+</body>
+</html>
